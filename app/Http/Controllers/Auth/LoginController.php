@@ -31,14 +31,30 @@ class LoginController extends Controller
 
     public function redirectTo()
     {
+        // Admin Login
         if(Auth::user()->role_as == 'admin')
         {
             return 'dashboard';
         }
-        else
+
+        // Vendor Login
+        if(Auth::user()->role_as == 'vendor')
+        {
+            return 'vendor-dashboard';
+        }
+
+        // Normal User Login
+        if(Auth::user()->role_as == NULL)
         {
             return 'home';
         }
+
+
+
+        // else
+        // {
+        //     return 'home';
+        // }
     }
 
     /**
