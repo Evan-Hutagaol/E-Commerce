@@ -24,6 +24,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 // Route::get('/home', 'HomeController@index')->name('home');
 
+// Routing for Admin
 Route::group(['middleware' => ['auth','isAdmin']], function(){
 
     Route::get('/dashboard', function() {
@@ -31,10 +32,11 @@ Route::group(['middleware' => ['auth','isAdmin']], function(){
     });
 });
 
+// Routing for Vendor
 Route::group(['middleware' => ['auth','isVendor']], function(){
 
-    Route::get('/dashboard', function() {
-        return view('admin.dashboard');
+    Route::get('/vendor-dashboard', function() {
+        return view('vendor.dashboard');
     });
 });
 
