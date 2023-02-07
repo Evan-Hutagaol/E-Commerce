@@ -31,6 +31,13 @@ Route::group(['middleware' => ['auth','isAdmin']], function(){
     });
 });
 
+Route::group(['middleware' => ['auth','isVendor']], function(){
+
+    Route::get('/dashboard', function() {
+        return view('admin.dashboard');
+    });
+});
+
 
 
 // Auth::routes();
