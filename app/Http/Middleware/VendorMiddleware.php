@@ -21,7 +21,7 @@ class VendorMiddleware
             return $next($request);
         }
         else{
-            return redirect('/home')->with('status', 'You are not allowed to acces the Dashboard. !');
+            return redirect('/home')->with('status', 'You are not allowed to acces the Vendor Dashboard. !');
         }
     }
 }
