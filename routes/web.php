@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Admin\RegisteredController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -30,6 +32,8 @@ Route::group(['middleware' => ['auth','isAdmin']], function(){
     Route::get('/dashboard', function() {
         return view('admin.dashboard');
     });
+
+    Route::get('registered-user', [RegisteredController::class, 'index']);
 });
 
 // Routing for Vendor
